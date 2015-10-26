@@ -1,0 +1,30 @@
+<html>
+ <head>
+  <title>Bing Translator Test</Title>
+ </head>
+<body>
+ 
+ <div id="englishText">
+ Hello
+ </div>
+ 
+ <div id="arabicText">
+ Arabic: 
+ </div>
+ 
+ <script type="text/javascript">
+  var text = document.getElementById("englishText").innerHTML;
+  function test () {
+    window.doneCallback = function(response) {
+    document.getElementById("arabicText").innerHTML +=response; }
+    var s = document.createElement("script");
+    s.src = "http://api.microsofttranslator.com/V2/Ajax.svc/Translate?oncomplete=doneCallback&appId=U5H6zME2El7WMhbrK0pXJhQ3s+F57qb6iX373P8lWqc&from=en&to=ar" + "&text=" + text;
+    document.getElementsByTagName("head")[0].appendChild(s);
+  }
+</script>
+ <input type="button" value="en 2 ar" onClick="test()"/>
+ 
+
+ 
+</body>
+</html>
